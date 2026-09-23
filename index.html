@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BAGFI — Luxury you can lock in.</title>
+    <meta
+      name="description"
+      content="BAGFI brings bold AI finance vibes, fresh memes, and unstoppable Arc community energy. Buy $BAGFI with Arc USDC."
+    />
+    <meta name="theme-color" content="#07010f" />
+    <link rel="icon" href="logo.png" type="image/png" />
+    <meta property="og:title" content="BAGFI — Luxury you can lock in." />
+    <meta
+      property="og:description"
+      content="BAGFI brings bold AI finance vibes, fresh memes, and unstoppable Arc community energy."
+    />
+    <meta property="og:image" content="banner.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bag: "#8359FB",
+              void: "#07010f",
+              ink: "#12061f",
+            },
+            fontFamily: {
+              display: ["Syne", "sans-serif"],
+              sans: ["Outfit", "system-ui", "sans-serif"],
+              serif: ["Instrument Serif", "Georgia", "serif"],
+              mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+            },
+            boxShadow: {
+              glow: "0 0 42px rgba(131, 89, 251, 0.45)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #07010f;
+      }
+      ::selection {
+        background: #8359fb;
+        color: #fff;
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #07010f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#a78bfa, #8359fb);
+        border-radius: 999px;
+      }
+      .text-shimmer {
+        color: #ddd6fe;
+        background-image: linear-gradient(
+          100deg,
+          #ffffff 0%,
+          #ddd6fe 22%,
+          #8359fb 48%,
+          #ffffff 72%,
+          #c4b5fd 100%
+        );
+        background-size: 220% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 7s linear infinite;
+      }
+      @keyframes shimmer {
+        to {
+          background-position: 220% 0;
+        }
+      }
+      .ticker-track {
+        animation: ticker 32s linear infinite;
+      }
+      @keyframes ticker {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .spin-slow {
+        animation: spin 22s linear infinite;
+      }
+      .spin-rev {
+        animation: spin 14s linear infinite reverse;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .border-flow {
+        background: linear-gradient(90deg, #8359fb, #e9d5ff, #6d28d9, #8359fb);
+        background-size: 300% 100%;
+        animation: flow 6s linear infinite;
+      }
+      @keyframes flow {
+        to {
+          background-position: 300% 0;
+        }
+      }
+      .scanline::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(221, 214, 254, 0.85),
+          transparent
+        );
+        box-shadow: 0 0 18px rgba(131, 89, 251, 0.85);
+        animation: scan 5.5s linear infinite;
+      }
+      @keyframes scan {
+        from {
+          top: 0;
+        }
+        to {
+          top: 100%;
+        }
+      }
+      .lattice {
+        background-image: repeating-linear-gradient(
+            60deg,
+            transparent 0 26px,
+            rgba(196, 181, 253, 0.09) 26px 27px
+          ),
+          repeating-linear-gradient(
+            -60deg,
+            transparent 0 26px,
+            rgba(131, 89, 251, 0.08) 26px 27px
+          );
+        -webkit-mask-image: linear-gradient(to top, black, transparent 80%);
+        mask-image: linear-gradient(to top, black, transparent 80%);
+      }
+      .buy-pulse {
+        animation: pulse-glow 2.8s ease-in-out infinite;
+      }
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 22px rgba(131, 89, 251, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 48px rgba(131, 89, 251, 0.78);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .text-shimmer,
+        .ticker-track,
+        .spin-slow,
+        .spin-rev,
+        .border-flow,
+        .scanline::after,
+        .buy-pulse {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-void font-sans text-violet-100 antialiased">
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute inset-0 scale-110 bg-[url('banner.jpg')] bg-cover bg-center blur-3xl brightness-50 saturate-150"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(131,89,251,0.42),transparent_52%),radial-gradient(ellipse_at_80%_0%,rgba(76,29,149,0.35),transparent_42%),linear-gradient(180deg,rgba(7,1,15,0.55),rgba(7,1,15,0.82)_42%,rgba(7,1,15,0.94))]"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(131,89,251,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(131,89,251,0.07)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]"
+      ></div>
+      <div class="lattice absolute inset-x-0 bottom-0 h-[46%]"></div>
+    </div>
+    <div
+      id="cursor-glow"
+      aria-hidden="true"
+      class="pointer-events-none fixed z-30 hidden h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-bag/20 blur-3xl mix-blend-screen md:block"
+    ></div>
+
+    <p
+      class="pointer-events-none fixed left-5 top-1/2 z-20 hidden -translate-y-1/2 -rotate-90 font-mono text-[10px] tracking-[0.42em] text-violet-300/50 xl:block"
+    >
+      LUXURY YOU CAN LOCK IN
+    </p>
+
+    <header class="fixed inset-x-0 top-0 z-40 border-b border-bag/20 bg-void/70 backdrop-blur-xl">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+        <a href="#top" class="flex items-center gap-2.5">
+          <img
+            src="logo.png"
+            alt=""
+            width="256"
+            height="256"
+            class="h-9 w-9 object-contain drop-shadow-[0_0_12px_rgba(131,89,251,0.85)]"
+          />
+          <span class="font-display text-lg font-extrabold tracking-wide text-white">BAGFI</span>
+        </a>
+        <nav class="hidden items-center gap-8 text-sm font-medium text-violet-200 md:flex">
+          <a href="#how-to-buy" class="transition hover:text-white">How to Buy</a>
+          <a
+            href="https://dexscreener.com/arc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="transition hover:text-white"
+            >Chart</a
+          >
+        </nav>
+        <div class="flex items-center gap-2.5">
+          <a
+            href="https://x.com/BAGFIarc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="grid h-11 w-11 place-items-center overflow-hidden rounded-xl border border-bag/40 bg-black transition hover:border-bag hover:shadow-glow"
+          >
+            <img src="x.png" alt="BAGFI on X" width="554" height="554" class="h-full w-full object-cover" />
+          </a>
+          <a
+            href="https://argus.world/token/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="buy-pulse inline-flex min-h-11 items-center justify-center rounded-full bg-bag px-5 text-sm font-semibold text-white transition hover:brightness-110"
+            >Buy Now</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="relative overflow-hidden px-5 pb-8 pt-28 md:pt-32">
+        <div class="mx-auto flex max-w-4xl flex-col items-center text-center">
+          <div class="relative mb-8 h-36 w-36">
+            <div class="spin-slow absolute inset-0 rounded-full border border-dashed border-bag/70"></div>
+            <div class="spin-rev absolute inset-3 rounded-full border border-violet-200/30"></div>
+            <div class="absolute inset-6 rounded-full bg-bag/20 blur-2xl"></div>
+            <img
+              src="logo.png"
+              alt="BAGFI logo"
+              width="256"
+              height="256"
+              class="relative z-10 h-full w-full object-contain drop-shadow-[0_0_28px_rgba(131,89,251,0.95)]"
+            />
+          </div>
+
+          <p
+            class="mb-5 inline-flex items-center gap-2 rounded-full border border-bag/40 bg-bag/10 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-violet-200"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-bag shadow-[0_0_10px_#8359FB]"></span>
+            Arc · AI finance · $BAGFI
+          </p>
+
+          <h1
+            class="font-display text-7xl font-extrabold leading-[0.88] tracking-[-0.05em] sm:text-8xl md:text-9xl"
+          >
+            <span class="text-shimmer">BAGFI</span>
+          </h1>
+          <p class="mt-5 font-serif text-3xl italic text-violet-100 sm:text-4xl">Luxury you can lock in.</p>
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-violet-100 sm:text-lg">
+            BAGFI brings bold AI finance vibes, fresh memes, and unstoppable Arc community energy.
+          </p>
+
+          <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row">
+            <a
+              href="https://argus.world/token/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="buy-pulse inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-bag px-8 text-sm font-semibold tracking-wide text-white transition hover:brightness-110 sm:w-auto"
+            >
+              Buy Now
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a
+              href="https://dexscreener.com/arc/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-bag/50 bg-bag/10 px-8 text-sm font-semibold tracking-wide text-violet-50 backdrop-blur transition hover:bg-bag/25 sm:w-auto"
+            >
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 19V5M4 19h16" stroke-linecap="round" />
+                <path d="M8 15l4-5 3 3 5-7" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Chart
+            </a>
+          </div>
+
+          <div class="border-flow mt-8 w-full max-w-xl rounded-2xl p-px shadow-glow">
+            <div
+              class="flex flex-col gap-3 rounded-2xl bg-ink/90 px-4 py-3 backdrop-blur-xl sm:flex-row sm:items-center"
+            >
+              <div class="min-w-0 flex-1 text-left">
+                <p class="font-mono text-[10px] uppercase tracking-[0.28em] text-violet-300">Contract · CA</p>
+                <p class="break-all font-mono text-base text-white" data-ca>TBA</p>
+              </div>
+              <button
+                type="button"
+                data-copy
+                class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl border border-bag/40 bg-bag/15 px-5 text-sm font-semibold text-violet-50 transition hover:bg-bag hover:text-white"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+          <p id="copy-status" class="sr-only" role="status"></p>
+
+          <dl class="mt-6 grid w-full max-w-xl grid-cols-3 gap-2 text-center">
+            <div class="rounded-2xl border border-bag/20 bg-white/[0.03] px-3 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-violet-300">Symbol</dt>
+              <dd class="mt-1 font-display text-sm font-bold text-white">BAGFI</dd>
+            </div>
+            <div class="rounded-2xl border border-bag/20 bg-white/[0.03] px-3 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-violet-300">Pay with</dt>
+              <dd class="mt-1 font-display text-sm font-bold text-white">Arc USDC</dd>
+            </div>
+            <div class="rounded-2xl border border-bag/20 bg-white/[0.03] px-3 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-violet-300">Chain</dt>
+              <dd class="mt-1 font-display text-sm font-bold text-white">Arc</dd>
+            </div>
+          </dl>
+        </div>
+
+        <figure class="relative mx-auto mt-14 max-w-5xl">
+          <div class="absolute -inset-4 rounded-[2rem] bg-bag/25 blur-3xl"></div>
+          <div
+            class="scanline relative overflow-hidden rounded-[1.6rem] border border-violet-300/30 shadow-[0_30px_80px_rgba(131,89,251,0.28)]"
+          >
+            <span class="pointer-events-none absolute left-3 top-3 z-10 h-5 w-5 border-l-2 border-t-2 border-violet-200/80"></span>
+            <span class="pointer-events-none absolute right-3 top-3 z-10 h-5 w-5 border-r-2 border-t-2 border-violet-200/80"></span>
+            <span class="pointer-events-none absolute bottom-3 left-3 z-10 h-5 w-5 border-b-2 border-l-2 border-violet-200/80"></span>
+            <span class="pointer-events-none absolute bottom-3 right-3 z-10 h-5 w-5 border-b-2 border-r-2 border-violet-200/80"></span>
+            <img
+              src="banner.jpg"
+              alt="BAGFI banner. Luxury you can lock in."
+              width="2448"
+              height="816"
+              class="aspect-[3/1] w-full object-cover"
+            />
+          </div>
+        </figure>
+      </section>
+
+      <div class="relative mt-12 border-y border-bag/20 bg-bag/10 py-3">
+        <div class="overflow-hidden">
+          <div class="ticker-track flex w-max items-center whitespace-nowrap font-mono text-xs uppercase tracking-[0.28em] text-violet-100">
+            <p class="flex items-center">
+              <span class="px-4">$BAGFI</span><span class="text-bag">✦</span>
+              <span class="px-4">Bold AI finance</span><span class="text-bag">✦</span>
+              <span class="px-4">Fresh memes</span><span class="text-bag">✦</span>
+              <span class="px-4">Unstoppable Arc energy</span><span class="text-bag">✦</span>
+              <span class="px-4">Arc USDC</span><span class="text-bag">✦</span>
+              <span class="px-4">Luxury you can lock in</span><span class="text-bag">✦</span>
+            </p>
+            <p class="flex items-center" aria-hidden="true">
+              <span class="px-4">$BAGFI</span><span class="text-bag">✦</span>
+              <span class="px-4">Bold AI finance</span><span class="text-bag">✦</span>
+              <span class="px-4">Fresh memes</span><span class="text-bag">✦</span>
+              <span class="px-4">Unstoppable Arc energy</span><span class="text-bag">✦</span>
+              <span class="px-4">Arc USDC</span><span class="text-bag">✦</span>
+              <span class="px-4">Luxury you can lock in</span><span class="text-bag">✦</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section class="mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div class="max-w-2xl">
+          <p class="font-mono text-[11px] uppercase tracking-[0.32em] text-bag">01 / Signal</p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            One bag. Three frequencies.
+          </h2>
+          <p class="mt-4 text-lg leading-relaxed text-violet-100">
+            BAGFI brings bold AI finance vibes, fresh memes, and unstoppable Arc community energy.
+          </p>
+        </div>
+        <div class="mt-10 grid gap-4 md:grid-cols-3">
+          <article
+            class="rounded-3xl border border-bag/25 bg-gradient-to-b from-bag/20 to-white/[0.03] p-6 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-bag/60 hover:shadow-glow"
+          >
+            <div class="mb-8 grid h-12 w-12 place-items-center rounded-2xl border border-bag/30 bg-void/50 text-bag">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke-linecap="round" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M7 7l1.5 1.5M15.5 15.5 17 17M17 7l-1.5 1.5M8.5 15.5 7 17" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white">Bold AI finance</h3>
+            <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+              A locked bag with a violet pulse. BAGFI treats the chart like a signal, the wallet like a vault, and the vibe like it was trained to stay early.
+            </p>
+          </article>
+          <article
+            class="rounded-3xl border border-bag/25 bg-white/[0.03] p-6 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-bag/60 hover:shadow-glow"
+          >
+            <div class="mb-8 grid h-12 w-12 place-items-center rounded-2xl border border-bag/30 bg-bag/10 text-bag">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M5 15c2-6 4-6 6 0s4 6 6 0" stroke-linecap="round" />
+                <circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none" />
+                <circle cx="15" cy="7" r="1.2" fill="currentColor" stroke="none" />
+                <path d="M4 19h16" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white">Fresh memes</h3>
+            <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+              New drops, sharper jokes, and a timeline that refuses to go quiet. The bag is the punchline and the community writes the next frame.
+            </p>
+          </article>
+          <article
+            class="rounded-3xl border border-bag/25 bg-white/[0.03] p-6 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-bag/60 hover:shadow-glow"
+          >
+            <div class="mb-8 grid h-12 w-12 place-items-center rounded-2xl border border-bag/30 bg-bag/10 text-bag">
+              <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M12 4c2.5 2.4 2.5 13.6 0 16M12 4c-2.5 2.4-2.5 13.6 0 16M4 12h16" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white">Unstoppable Arc energy</h3>
+            <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+              Built with the Arc community. Arc USDC goes in, $BAGFI gets locked, and the group keeps the frequency loud.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how-to-buy" class="scroll-mt-24 border-y border-bag/15 bg-void/40 px-5 py-20 md:py-28">
+        <div class="mx-auto max-w-6xl">
+          <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div class="max-w-2xl">
+              <p class="font-mono text-[11px] uppercase tracking-[0.32em] text-bag">02 / Acquire</p>
+              <h2 class="mt-3 font-display text-4xl font-extrabold tracking-tight text-white md:text-5xl">How to Buy</h2>
+              <p class="mt-4 text-lg leading-relaxed text-violet-100">
+                Four steps. Pay with Arc USDC. Confirm the swap. Lock in $BAGFI.
+              </p>
+            </div>
+            <a
+              href="https://argus.world/token/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-12 items-center justify-center rounded-full bg-bag px-7 text-sm font-semibold text-white shadow-glow transition hover:brightness-110"
+              >Buy Now</a
+            >
+          </div>
+
+          <ol class="relative mt-12 grid gap-4 md:grid-cols-4">
+            <div
+              class="pointer-events-none absolute left-[10%] right-[10%] top-12 hidden h-px bg-gradient-to-r from-transparent via-bag to-transparent md:block"
+              aria-hidden="true"
+            ></div>
+            <li class="relative rounded-3xl border border-bag/25 bg-ink/80 p-6 backdrop-blur-md">
+              <div class="mb-8 flex items-start justify-between">
+                <span class="font-display text-5xl font-extrabold leading-none text-bag">01</span>
+                <span class="grid h-11 w-11 place-items-center rounded-2xl border border-bag/30 bg-bag/10 text-bag">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <rect x="3" y="7" width="18" height="13" rx="2" />
+                    <path d="M7 7V6a5 5 0 0 1 10 0v1" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Open an Arc wallet</h3>
+              <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+                Use a wallet that supports the Arc network. That wallet is the key. You will connect it on Argus when you are ready to buy.
+              </p>
+            </li>
+            <li class="relative rounded-3xl border border-bag/25 bg-ink/80 p-6 backdrop-blur-md">
+              <div class="mb-8 flex items-start justify-between">
+                <span class="font-display text-5xl font-extrabold leading-none text-bag">02</span>
+                <span class="grid h-11 w-11 place-items-center rounded-2xl border border-bag/30 bg-bag/10 text-bag">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <ellipse cx="12" cy="7" rx="7" ry="3" />
+                    <path d="M5 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7" />
+                    <path d="M5 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Load Arc USDC</h3>
+              <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+                $BAGFI is bought with Arc USDC. Bridge or deposit USDC on Arc until the balance you want to spend is in the wallet. Leave a little extra for the network fee.
+              </p>
+            </li>
+            <li class="relative rounded-3xl border border-bag/25 bg-ink/80 p-6 backdrop-blur-md">
+              <div class="mb-8 flex items-start justify-between">
+                <span class="font-display text-5xl font-extrabold leading-none text-bag">03</span>
+                <span class="grid h-11 w-11 place-items-center rounded-2xl border border-bag/30 bg-bag/10 text-bag">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <path d="M10 13a5 5 0 0 0 7.5.4l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1" stroke-linecap="round" />
+                    <path d="M14 11a5 5 0 0 0-7.5-.4l-2 2a5 5 0 0 0 7.1 7.1l1.1-1.1" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Open the market</h3>
+              <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+                Hit
+                <a
+                  href="https://argus.world/token/TBA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-violet-200 underline decoration-bag/70 underline-offset-4 hover:text-white"
+                  >Buy Now</a
+                >. Argus opens the $BAGFI page. Connect your wallet, stay on Arc, and set Arc USDC as the token you pay with.
+              </p>
+            </li>
+            <li class="relative rounded-3xl border border-bag/40 bg-gradient-to-b from-bag/25 to-ink/80 p-6 shadow-glow backdrop-blur-md">
+              <div class="mb-8 flex items-start justify-between">
+                <span class="font-display text-5xl font-extrabold leading-none text-white">04</span>
+                <span class="grid h-11 w-11 place-items-center rounded-2xl border border-white/20 bg-white/10 text-white">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <rect x="5" y="11" width="14" height="9" rx="2" />
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-white">Swap and lock in</h3>
+              <p class="mt-3 text-sm leading-relaxed text-violet-100/90">
+                Enter your Arc USDC amount, check the quote, and confirm the swap. $BAGFI lands in your wallet. Match the CA before you sign, then watch the chart.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="chart" class="scroll-mt-24 mx-auto max-w-6xl px-5 py-20 md:py-28">
+        <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div class="max-w-2xl">
+            <p class="font-mono text-[11px] uppercase tracking-[0.32em] text-bag">03 / Market</p>
+            <h2 class="mt-3 font-display text-4xl font-extrabold tracking-tight text-white md:text-5xl">Chart</h2>
+            <p class="mt-4 text-lg leading-relaxed text-violet-100">
+              $BAGFI, live on Dexscreener. Same Arc pair. Same energy.
+            </p>
+          </div>
+          <a
+            href="https://dexscreener.com/arc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-bag/50 bg-bag/10 px-7 text-sm font-semibold text-violet-50 transition hover:bg-bag/25"
+          >
+            Chart
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M7 17 17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-3 rounded-2xl border border-bag/25 bg-ink/70 px-4 py-3 backdrop-blur-md sm:flex-row sm:items-center">
+          <div class="min-w-0 flex-1">
+            <p class="font-mono text-[10px] uppercase tracking-[0.28em] text-violet-300">CA</p>
+            <p class="break-all font-mono text-sm text-white sm:text-base" data-ca>TBA</p>
+          </div>
+          <button
+            type="button"
+            data-copy
+            class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-xl bg-bag px-5 text-sm font-semibold text-white transition hover:brightness-110"
+          >
+            Copy
+          </button>
+        </div>
+
+        <div class="relative mt-5 overflow-hidden rounded-[1.6rem] border border-bag/30 bg-void shadow-[0_0_80px_rgba(131,89,251,0.18)]">
+          <div class="flex items-center justify-between gap-3 border-b border-bag/20 px-4 py-3">
+            <div class="flex min-w-0 items-center gap-2">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-bag"></span>
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-violet-400/50"></span>
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-violet-200/30"></span>
+              <span class="truncate pl-2 font-mono text-[11px] text-violet-300">dexscreener.com/arc/TBA</span>
+            </div>
+            <span class="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-violet-300 sm:inline">Arc · $BAGFI</span>
+          </div>
+          <iframe
+            title="BAGFI chart on Dexscreener"
+            src="https://dexscreener.com/arc/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
+            class="h-[440px] w-full border-0 bg-void md:h-[640px]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p class="mt-4 text-sm text-violet-300">
+          Chart not showing?
+          <a
+            href="https://dexscreener.com/arc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-semibold text-violet-100 underline decoration-bag/70 underline-offset-4 hover:text-white"
+            >Open it on Dexscreener</a
+          >.
+        </p>
+      </section>
+
+      <section class="px-5 pb-24">
+        <div
+          class="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-bag/30 bg-gradient-to-br from-bag/30 via-ink to-void px-6 py-14 text-center shadow-glow md:px-16 md:py-20"
+        >
+          <div class="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-bag/30 blur-3xl"></div>
+          <div class="pointer-events-none absolute -bottom-20 -right-10 h-56 w-56 rounded-full bg-violet-700/30 blur-3xl"></div>
+          <img
+            src="logo.png"
+            alt=""
+            width="256"
+            height="256"
+            class="relative mx-auto h-16 w-16 object-contain drop-shadow-[0_0_18px_rgba(131,89,251,0.9)]"
+          />
+          <h2 class="relative mt-6 font-display text-4xl font-extrabold tracking-tight text-white md:text-6xl">Lock the bag.</h2>
+          <p class="relative mx-auto mt-4 max-w-2xl font-serif text-2xl italic text-violet-100 md:text-3xl">
+            BAGFI brings bold AI finance vibes, fresh memes, and unstoppable Arc community energy.
+          </p>
+          <div class="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="https://argus.world/token/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="buy-pulse inline-flex min-h-12 w-full items-center justify-center rounded-full bg-bag px-8 text-sm font-semibold text-white transition hover:brightness-110 sm:w-auto"
+              >Buy Now</a
+            >
+            <a
+              href="https://dexscreener.com/arc/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 text-sm font-semibold text-white transition hover:bg-white/10 sm:w-auto"
+              >Chart</a
+            >
+            <a
+              href="https://x.com/BAGFIarc"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-bag/40 bg-black/40 px-5 text-sm font-semibold text-white transition hover:border-bag sm:w-auto"
+            >
+              <img src="x.png" alt="" width="554" height="554" class="h-5 w-5 rounded-sm object-cover" />
+              BAGFI on X
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-bag/20 px-5 py-10">
+      <div class="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <img src="logo.png" alt="" width="256" height="256" class="h-8 w-8 object-contain" />
+            <span class="font-display text-lg font-extrabold text-white">BAGFI</span>
+          </div>
+          <p class="mt-3 max-w-sm text-sm leading-relaxed text-violet-200/80">
+            Symbol BAGFI. Luxury you can lock in. Bold AI finance, fresh memes, Arc community energy.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-violet-200">
+          <a href="#how-to-buy" class="hover:text-white">How to Buy</a>
+          <a href="#chart" class="hover:text-white">Chart</a>
+          <a href="https://argus.world/token/TBA" target="_blank" rel="noopener noreferrer" class="hover:text-white">Buy Now</a>
+          <a href="https://dexscreener.com/arc/TBA" target="_blank" rel="noopener noreferrer" class="hover:text-white">Dexscreener</a>
+          <a href="https://x.com/BAGFIarc" target="_blank" rel="noopener noreferrer" class="hover:text-white">X</a>
+        </div>
+      </div>
+      <p class="mx-auto mt-8 max-w-6xl text-xs leading-relaxed text-violet-300/70">
+        $BAGFI is a meme token. Nothing here is financial advice. Verify the contract address and do your own research before you swap Arc USDC.
+      </p>
+    </footer>
+
+    <script>
+      const CA = "TBA";
+
+      document.querySelectorAll("[data-ca]").forEach((node) => {
+        node.textContent = CA;
+      });
+
+      async function copyCa() {
+        try {
+          await navigator.clipboard.writeText(CA);
+        } catch (error) {
+          const field = document.createElement("textarea");
+          field.value = CA;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.left = "-9999px";
+          document.body.appendChild(field);
+          field.select();
+          document.execCommand("copy");
+          field.remove();
+        }
+      }
+
+      const status = document.getElementById("copy-status");
+      document.querySelectorAll("[data-copy]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          await copyCa();
+          const previous = button.textContent;
+          button.textContent = "Copied";
+          if (status) status.textContent = "Contract address copied";
+          window.setTimeout(() => {
+            button.textContent = previous;
+          }, 1600);
+        });
+      });
+
+      const glow = document.getElementById("cursor-glow");
+      if (glow && window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener(
+          "pointermove",
+          (event) => {
+            glow.style.left = event.clientX + "px";
+            glow.style.top = event.clientY + "px";
+          },
+          { passive: true }
+        );
+      }
+    </script>
+  </body>
+</html>
